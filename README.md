@@ -53,7 +53,8 @@ fishao_re/
 │  ├─ icons/
 │  └─ out/
 │     ├─ FlashFishaoGame.hold.swf                 # 2.5.1 auto-hold (canonical)
-│     ├─ FlashFishaoGame.hold_autoshell.swf       # 2.5.1 hold + auto-shell (canonical)
+│     ├─ FlashFishaoGame.hold_autoshell.swf       # 2.5.1 hold + auto-shell (importScript, canonical)
+│     ├─ FlashFishaoGame.hold_autoshell.helper.swf# 2.5.1 hold + auto-shell (helper ABC, fallback)
 │     └─ FlashFishaoGame.hold_autoshell.2.4.0.swf # 2.4.0 hold + auto-shell (legacy)
 ├─ data/
 │  ├─ live/                  # sunucudan çekilen client verisi (fish, rods, baits, resources, en, tr)
@@ -99,7 +100,15 @@ Instant `stopWithWin()` **çalışmaz**: `FishingRsltReq` `FishingResp`'ten ~1.2
 
 ### Auto-shell
 
-`UpdateResp.data.shells` / `shellAppeared` geldiğinde her kabuk için anında `CollectShellReq` burst'ü (5×) gönderilir; retry 80/160/320 ms. `AUTO_SHELL_SPOOF_POSITION` ile oyuncu pozisyonu kabuğa taşınıp geri alınır (sunucu mesafe kontrolü aşılmaz). 2.5.1'de sınıf adları obfuscated; patch `src/as3/2.5.1/.../_4039c287ddb4ef46ab65ab0e.as` üzerinden gider.
+`UpdateResp.data.shells` / `shellAppeared` geldiğinde her kabuk için anında `CollectShellReq` burst'ü (5×) gönderilir; retry 80/160/320 ms. `AUTO_SHELL_SPOOF_POSITION` ile oyuncu pozisyonu kabuğa taşınıp geri alınır (sunucu mesafe kontrolü aşılmaz). 2.5.1'de sınıf adları obfuscated; patch `src/as3/2.5.1/.../_4039c287ddb4ef46ab65ab0e.as` (LocationModel) üzerinden FFDec `-importScript` ile gider.
+
+```bash
+# 2.5.1: hold + autoshell (tek komut, build sonrası otomatik doğrulama)
+python tools/patch_autoshell_251.py runtime/out/FlashFishaoGame.hold.swf runtime/out/FlashFishaoGame.hold_autoshell.swf
+#   ok hold patch preserved / vanilla hold removed / AUTO_SHELL_ENABLED / collectShellBurst / scheduleShellRetry
+```
+
+Hold yaması başka bir sınıfta (`BiteProcessPanelAsset`) olduğu için `-importScript` yeniden derlemesinden etkilenmez; araç bunu ve enjeksiyonu her build'de doğrular. `hold_autoshell.helper.swf` önceki ABC-helper yaklaşımının çalışan build'idir, fallback olarak durur.
 
 ---
 

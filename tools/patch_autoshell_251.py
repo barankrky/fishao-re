@@ -41,6 +41,31 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "src/as3/2.5.1/com/ax3/fishao/locations/base/_4039c287ddb4ef46ab65ab0e.as"
+
+# hold patch markers (see tools/patch_hold_green.py)
+HOLD_PATCHED = bytes.fromhex("d0243275618642020202020202")
+HOLD_VANILLA = bytes.fromhex("d0d0668642d0668542a0618642")
+
+
+def verify(dst: Path) -> None:
+    """Fail the build if the hold patch or the injected autoshell is missing."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from swf import SWF
+
+    swf = SWF(str(dst))
+    abc = max(swf.abc_tags(), key=lambda tag: len(tag["data"]))["data"]
+    checks = [
+        ("hold patch preserved", abc.count(HOLD_PATCHED) == 1),
+        ("vanilla hold removed", abc.count(HOLD_VANILLA) == 0),
+        ("AUTO_SHELL_ENABLED injected", abc.count(b"AUTO_SHELL_ENABLED") >= 1),
+        ("collectShellBurst injected", abc.count(b"collectShellBurst") >= 1),
+        ("scheduleShellRetry injected", abc.count(b"scheduleShellRetry") >= 1),
+    ]
+    for name, ok in checks:
+        print(("  ok   " if ok else "  FAIL " ) + name)
+    failed = [name for name, ok in checks if not ok]
+    if failed:
+        raise SystemExit("verification failed: " + ", ".join(failed))
 DEFAULT_FFDEC = Path(r"C:\Users\barankrky\fishao_work\ffdec\ffdec-cli.jar")
 
 
@@ -277,7 +302,8 @@ def main() -> None:
 
     print(f"input : {src_swf}")
     print(f"output: {dst_swf} ({dst_swf.stat().st_size} bytes)")
-    print("test  : client_test\\run-adl-autoshell.bat")
+    verify(dst_swf)
+    print("test  : runtime\\run-adl-autoshell.bat")
 
 
 if __name__ == "__main__":

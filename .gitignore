@@ -8,6 +8,7 @@ venv/
 runtime/out/*.swf
 !runtime/out/FlashFishaoGame.hold.swf
 !runtime/out/FlashFishaoGame.hold_autoshell.swf
+!runtime/out/FlashFishaoGame.hold_autoshell.helper.swf
 !runtime/out/FlashFishaoGame.hold_autoshell.2.4.0.swf
 
 # AIR install copy (recreate from C:\Program Files (x86)\Fishao when needed)
