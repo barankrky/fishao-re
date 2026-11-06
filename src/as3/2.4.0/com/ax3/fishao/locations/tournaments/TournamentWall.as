@@ -1,0 +1,108 @@
+package com.ax3.fishao.locations.tournaments
+{
+   import com.ax3.fishao.control.managers.FishaoSoundManager;
+   import com.ax3.utils.BitmapUtil;
+   import com.inkora.tween.TweenCube;
+   import flash.display.BitmapData;
+   import flash.display.DisplayObject;
+   import flash.display.MovieClip;
+   import flash.geom.Rectangle;
+   
+   public class TournamentWall
+   {
+      
+      private var _asset:MovieClip;
+      
+      private var _isOpen:Boolean;
+      
+      private var _obstacleMap:BitmapData;
+      
+      private var _obstacleMapBounds:Rectangle;
+      
+      private var _xOffset:Number;
+      
+      private var _yOffset:Number;
+      
+      private var _index:int;
+      
+      private var _criteriaValueToOpen:int;
+      
+      private var _isOpenAnimationComplete:Boolean;
+      
+      public function TournamentWall(param1:int, param2:int)
+      {
+         super();
+         this._index = param1;
+         this._criteriaValueToOpen = param2;
+         this._isOpenAnimationComplete = false;
+      }
+      
+      public function set frame(param1:int) : void
+      {
+         if(this._asset.currentFrame != param1)
+         {
+            this._asset.gotoAndStop(param1);
+         }
+      }
+      
+      public function get frame() : int
+      {
+         return this._asset.currentFrame;
+      }
+      
+      public function isFullOpened() : Boolean
+      {
+         return this._isOpen && this._isOpenAnimationComplete;
+      }
+      
+      public function get criteriaValueToOpen() : int
+      {
+         return this._criteriaValueToOpen;
+      }
+      
+      private function onOpenComplete() : void
+      {
+         this._isOpenAnimationComplete = true;
+      }
+      
+      public function process(param1:DisplayObject) : void
+      {
+         var _loc2_:DisplayObject = null;
+         this._asset = MovieClip(param1);
+         _loc2_ = this._asset.getChildByName("obstacleMap");
+         this._obstacleMapBounds = _loc2_.getBounds(_loc2_);
+         this._obstacleMap = BitmapUtil.cloneWithBounds(_loc2_);
+         _loc2_.visible = false;
+         this._asset.gotoAndStop(1);
+         this._xOffset = this._asset.x + this._obstacleMapBounds.x + _loc2_.x;
+         this._yOffset = this._asset.y + this._obstacleMapBounds.y + _loc2_.y;
+      }
+      
+      public function open() : void
+      {
+         if(this._isOpen == false)
+         {
+            this._isOpen = true;
+            TweenCube.destroyTweensOf(this,false);
+            FishaoSoundManager.play(FishaoSoundManager.SFX_065_MOV_Tournament_doors);
+            TweenCube.to(this,1.25,{"frame":this._asset.totalFrames},{"onComplete":this.onOpenComplete});
+         }
+      }
+      
+      public function hitTest(param1:Number, param2:Number) : Boolean
+      {
+         param1 -= this._xOffset;
+         param2 -= this._yOffset;
+         return this.isFullOpened() == false && this._obstacleMap != null && param1 > 0 && param2 > 0 && param1 < this._obstacleMap.width && param2 < this._obstacleMap.height && this._obstacleMap.getPixel32(param1,param2) > 16777215;
+      }
+      
+      public function destroy() : void
+      {
+         this._asset = null;
+         this._obstacleMap.dispose();
+         this._obstacleMap = null;
+         this._obstacleMapBounds = null;
+      }
+   }
+}
+

@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Build / runtime outputs that are rebuilt by tools/
+runtime/out/*.swf
+!runtime/out/FlashFishaoGame.hold.swf
+!runtime/out/FlashFishaoGame.hold_autoshell.swf
+!runtime/out/FlashFishaoGame.hold_autoshell.2.4.0.swf
+
+# AIR install copy (recreate from C:\Program Files (x86)\Fishao when needed)
+runtime/Adobe AIR/
+runtime/FishaoGame.exe
+runtime/META-INF/
+runtime/out/discord-rpc.exe
+runtime/mimetype
+runtime/unins000.*
+
+# Proxy (planned, see docs/04-plan.md)
+proxy/node_modules/
+proxy/logs/
+proxy/rules.local.js
+
+# Logs, captures, scratch
+*.log
+connection.log
+logs/
+*.tmp
+*.bak
+*.jsonl
+
+# OS / editors
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# runtime helper binary
+runtime/discord-rpc.exe

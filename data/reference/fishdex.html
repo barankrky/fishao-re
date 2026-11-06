@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Fishdex — FISHAO Database</title>
+<link rel="icon" type="image/png" href="https://i.postimg.cc/2jH6F6tL/fishaodatabase.png">
+<link rel="stylesheet" href="css/theme.css">
+<style>
+  tr.section-row td{
+    background:linear-gradient(180deg,var(--wood-light),var(--wood-dark))!important;
+    color:var(--parchment)!important;
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:16px;
+    padding:12px 10px!important;
+  }
+  tr.location-row td{
+    background:var(--leaf-green-d)!important;
+    color:#fff!important;
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:14px;
+    padding:8px 10px!important;
+  }
+  tr.section-row:first-child td{padding-top:12px!important}
+
+  /* Fishdex stays inside the page — no horizontal dragging */
+  .table-wrap{
+    overflow-x:hidden!important;
+    width:100%;
+  }
+  table.data-table{
+    width:100%!important;
+    min-width:0!important;
+    table-layout:fixed;
+    font-size:12px;
+  }
+  table.data-table th,
+  table.data-table td{
+    white-space:normal!important;
+    overflow-wrap:anywhere;
+    word-break:normal;
+    padding:7px 6px!important;
+    line-height:1.25;
+    vertical-align:top;
+  }
+  table.data-table th{
+    font-size:11px;
+  }
+  table.data-table th:nth-child(1),
+  table.data-table td:nth-child(1){width:13%}
+  table.data-table th:nth-child(2),
+  table.data-table td:nth-child(2),
+  table.data-table th:nth-child(3),
+  table.data-table td:nth-child(3),
+  table.data-table th:nth-child(4),
+  table.data-table td:nth-child(4){width:6%}
+  table.data-table th:nth-child(5),
+  table.data-table td:nth-child(5){width:8%}
+  table.data-table th:nth-child(6),
+  table.data-table td:nth-child(6){width:6%}
+  table.data-table th:nth-child(7),
+  table.data-table td:nth-child(7){width:12%}
+  table.data-table th:nth-child(8),
+  table.data-table td:nth-child(8){width:13%}
+  table.data-table th:nth-child(9),
+  table.data-table td:nth-child(9){width:17%}
+  table.data-table th:nth-child(10),
+  table.data-table td:nth-child(10){width:13%}
+
+  @media(max-width:900px){
+    table.data-table{font-size:10px}
+    table.data-table th{font-size:9px}
+    table.data-table th,
+    table.data-table td{padding:5px 3px!important}
+  }
+</style>
+</head>
+<body>
+
+<div class="page-hero">
+  <h1 data-i18n="fishdex_hero_title">Fishdex</h1>
+  <p data-i18n="fishdex_hero_desc">Search and filter every area fish — sizes, rarity, bait, seasons and biting times.</p>
+  <div class="count" id="resultCount"></div>
+</div>
+
+<div class="container">
+  <div class="filter-bar">
+    <input type="text" id="q" data-i18n-placeholder="fishdex_search_ph" placeholder="Search fish name, bait or area…">
+    <select id="areaFilter"><option value="" data-i18n="all_areas">All areas</option></select>
+    <select id="starsFilter">
+      <option value="" data-i18n="all_stars">All stars</option>
+      <option value="1">★☆☆☆☆</option>
+      <option value="2">★★☆☆☆</option>
+      <option value="3">★★★☆☆</option>
+      <option value="4">★★★★☆</option>
+      <option value="5">★★★★★</option>
+    </select>
+    <select id="monthFilter">
+      <option value="" data-i18n="all_months">All months</option>
+      <option value="1" data-i18n="month_1">January</option>
+      <option value="2" data-i18n="month_2">February</option>
+      <option value="3" data-i18n="month_3">March</option>
+      <option value="4" data-i18n="month_4">April</option>
+      <option value="5" data-i18n="month_5">May</option>
+      <option value="6" data-i18n="month_6">June</option>
+      <option value="7" data-i18n="month_7">July</option>
+      <option value="8" data-i18n="month_8">August</option>
+      <option value="9" data-i18n="month_9">September</option>
+      <option value="10" data-i18n="month_10">October</option>
+      <option value="11" data-i18n="month_11">November</option>
+      <option value="12" data-i18n="month_12">December</option>
+    </select>
+  </div>
+  <div class="filter-note">Season dates use DD/MM.</div>
+
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th data-i18n="th_fish">Fish</th><th data-i18n="th_min">Min Length</th><th data-i18n="th_avg">Avg Length</th><th data-i18n="th_max">Max Length</th>
+          <th data-i18n="th_stars">Stars</th><th data-i18n="th_rarity">Rarity</th><th data-i18n="th_bait">Bait</th><th data-i18n="th_season">Season</th><th>Notes</th><th data-i18n="th_time">Time</th>
+        </tr>
+      </thead>
+      <tbody id="fishBody">
+        <tr><td colspan="10" class="state-msg" data-i18n="loading_fish">Loading fish…</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/common.js"></script>
+<script>
+renderHeader("fishdex.html");
+renderBackLink();
+renderFooter();
+applyTranslations();
+
+const body = document.getElementById("fishBody");
+const qInput = document.getElementById("q");
+const areaFilter = document.getElementById("areaFilter");
+const starsFilter = document.getElementById("starsFilter");
+const monthFilter = document.getElementById("monthFilter");
+const resultCount = document.getElementById("resultCount");
+
+async function loadStaticFish() {
+  const res = await fetch("data/fish.json", { cache: "no-store" });
+  if (!res.ok) throw new Error("Static Fishdex fallback unavailable.");
+  return await res.json();
+}
+
+async function loadAreas() {
+  try {
+    let raw;
+    try {
+      raw = await fetchJSON("/api/fish?page_size=1000");
+    } catch {
+      raw = await loadStaticFish();
+    }
+
+    const fish = Array.isArray(raw) ? raw : (raw.results || []);
+    const areas = new Set();
+
+    for (const f of fish) {
+      const section = f.section || f.category || "Area Fish";
+      if (section === "Club Fish") {
+        const clubGroup = String(f.subcategory || "").replace("Saltywater", "Saltwater").trim();
+        if (clubGroup) areas.add(clubGroup);
+        continue;
+      }
+
+      String(f.location || f.area || "")
+        .split(",")
+        .map(x => x.trim())
+        .filter(Boolean)
+        .forEach(x => areas.add(x));
+    }
+
+    [...areas]
+      .sort((a,b) => a.localeCompare(b, undefined, { numeric: true }))
+      .forEach(a => areaFilter.appendChild(el("option", { value: a }, a)));
+  } catch (e) { /* non-fatal */ }
+}
+
+async function loadFish() {
+  body.innerHTML = "";
+  body.appendChild(el("tr", {}, el("td", { colspan: "10", class: "state-msg" }, t("loading_fish"))));
+  const params = new URLSearchParams({ page_size: "1000" });
+  if (qInput.value) params.set("q", qInput.value);
+  if (areaFilter.value) params.set("area", areaFilter.value);
+  if (starsFilter.value) params.set("stars", starsFilter.value);
+  if (monthFilter.value) params.set("month", monthFilter.value);
+
+  try {
+    let raw;
+    let usingStaticFallback = false;
+    try {
+      raw = await fetchJSON(`/api/fish?${params.toString()}`);
+    } catch {
+      raw = await loadStaticFish();
+      usingStaticFallback = true;
+    }
+    const baseRows = Array.isArray(raw) ? raw : (raw.results || []);
+
+    // Backward-compatible normalization while the live Worker may still be on the older API.
+    let rows = [];
+    for (const f of baseRows) {
+      const locations = String(f.location || f.area || "")
+        .split(",")
+        .map(x => x.trim())
+        .filter(Boolean);
+      const section = f.section || f.category || "Area Fish";
+
+      if (Array.isArray(raw) || usingStaticFallback) {
+        const search = qInput.value.trim().toLowerCase();
+        if (search && ![f.name,f.bait,f.area,f.location,f.category,f.subcategory].join(" ").toLowerCase().includes(search)) continue;
+        if (starsFilter.value && String(f.stars) !== starsFilter.value) continue;
+        const clubGroup = section === "Club Fish"
+          ? String(f.subcategory || "").replace("Saltywater", "Saltwater").trim()
+          : "";
+        if (areaFilter.value && section === "Club Fish" && clubGroup !== areaFilter.value) continue;
+        if (areaFilter.value && section !== "Club Fish" && !locations.includes(areaFilter.value)) continue;
+
+        if (monthFilter.value) {
+          const target = Number(monthFilter.value);
+          const season = String(f.season || "");
+          let monthMatch = season === "" || season === "Always";
+          for (const range of season.split("|").map(x => x.trim()).filter(Boolean)) {
+            const m = range.match(/\b\d{1,2}\/(\d{1,2})\s*-\s*\d{1,2}\/(\d{1,2})\b/);
+            if (!m) continue;
+            const start = Number(m[1]), end = Number(m[2]);
+            if (start <= end ? target >= start && target <= end : target >= start || target <= end) {
+              monthMatch = true;
+              break;
+            }
+          }
+          if (!monthMatch) continue;
+        }
+      }
+
+      for (const location of (locations.length ? locations : ["Unknown"])) {
+        const displayArea = section === "Club Fish"
+          ? String(f.subcategory || location).replace("Saltywater", "Saltwater")
+          : location;
+        if (areaFilter.value && displayArea !== areaFilter.value && location !== areaFilter.value) continue;
+        rows.push({ ...f, area: displayArea, location: displayArea, section });
+      }
+    }
+
+    const sectionOrder = {"Area Fish":0,"Backyard Fish":1,"Club Fish":2,"Tournament Fish":3};
+    rows.sort((a,b) =>
+      (sectionOrder[a.section] ?? 99) - (sectionOrder[b.section] ?? 99) ||
+      String(a.area).localeCompare(String(b.area), undefined, { numeric:true }) ||
+      String(a.name).localeCompare(String(b.name))
+    );
+
+    renderRows(rows);
+    resultCount.textContent = t("fish_count", { count: rows.length, total: rows.length }) + (usingStaticFallback ? " · Offline dataset" : "");
+  } catch (e) {
+    body.innerHTML = "";
+    body.appendChild(el("tr", {}, el("td", { colspan: "10", class: "state-msg" }, "Fishdex data could not be loaded.")));
+  }
+}
+
+function renderRows(fish) {
+  body.innerHTML = "";
+  if (!fish.length) {
+    body.appendChild(el("tr", {}, el("td", { colspan: "10", class: "state-msg" }, t("no_fish_match"))));
+    return;
+  }
+  let currentSection = null;
+  let currentArea = null;
+
+  for (const f of fish) {
+    const section = f.section || f.category || "Area Fish";
+
+    if (section !== currentSection) {
+      currentSection = section;
+      currentArea = null;
+      body.appendChild(
+        el("tr", { class: "section-row" },
+          el("td", { colspan: "10" }, section.replace(" Fish",""))
+        )
+      );
+    }
+
+    if (f.area !== currentArea) {
+      currentArea = f.area;
+      body.appendChild(
+        el("tr", { class: "location-row" },
+          el("td", { colspan: "10" }, currentArea)
+        )
+      );
+    }
+
+    body.appendChild(el("tr", {}, [
+      el("td", { class: "name-cell" }, f.name),
+      el("td", {}, `${f.min_length} cm`),
+      el("td", {}, `${f.avg_length} cm`),
+      el("td", {}, `${f.max_length} cm`),
+      el("td", { class: "stars" }, starString(f.stars)),
+      el("td", {}, String(f.rarity)),
+      el("td", {}, f.bait),
+      el("td", {}, f.season),
+      el("td", {}, f.notes || "—"),
+      el("td", {}, f.time),
+    ]));
+  }
+}
+
+const debouncedLoad = debounce(loadFish, 250);
+qInput.addEventListener("input", debouncedLoad);
+areaFilter.addEventListener("change", loadFish);
+starsFilter.addEventListener("change", loadFish);
+monthFilter.addEventListener("change", loadFish);
+
+loadAreas();
+loadFish();
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a55e3ee71899d0f2',t:'MTc5MzkwNjc0MA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a55e3ee71899d0f2',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

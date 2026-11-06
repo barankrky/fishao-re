@@ -1,0 +1,511 @@
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+	        <script type="text/javascript">
+        var dateTimeOffset = new Date().getTimezoneOffset();
+        
+        function getElementsByClassNameLocalTimeWrapper() {
+            return document.getElementsByClassName("localtime");
+        }
+        
+        (function () {
+            var onload = function () {
+                var elementArray = new Array();
+                
+                if (document.getElementsByClassName) {
+                    elementArray = getElementsByClassNameLocalTimeWrapper();
+                } else {
+                    var re = new RegExp('(^| )localtime( |$)');
+                    var els = document.getElementsByTagName("*");
+                    for (var i=0,j=els.length; i<j; i++) {
+                        if (re.test(els[i].className))
+                            elementArray.push(els[i]);
+                    }
+                }
+                
+                for (var i = 0; i < elementArray.length; i++) {    
+                    var timeLocal = new Date(parseInt(elementArray[i].getAttribute("data-timestamp")));
+                    var hour = timeLocal.getHours();
+                    var ap = "am";
+                    if (hour > 11) {
+                        ap = "pm";
+                    }
+                    else if (hour > 12) {
+                        hour = hour - 12;
+                    }
+                    
+                    var string = elementArray[i].getAttribute("data-template");
+                    string = string.replace("[Y]", timeLocal.getFullYear());
+                    string = string.replace("[m]", ('0' + (timeLocal.getMonth() + 1)).slice(-2));
+                    string = string.replace("[d]", ('0' + timeLocal.getDate()).slice(-2));
+                    string = string.replace("[H]", ('0' + timeLocal.getHours()).slice(-2));
+                    string = string.replace("[g]", ('0' + hour).slice(-2));
+                    string = string.replace("[i]", ('0' + timeLocal.getMinutes()).slice(-2));
+                    string = string.replace("[s]", ('0' + timeLocal.getSeconds()).slice(-2));
+                    string = string.replace("[a]", ap);
+                    elementArray[i].childNodes[0].nodeValue = string;
+                }
+            };
+            
+            if (window.addEventListener)
+                window.addEventListener("DOMContentLoaded", onload);
+            else if (window.attachEvent)
+                window.attachEvent("onload", onload);
+        })();
+        </script><link rel="canonical" href="https://fishaotr1.tr.gg/Sibiri-%26%23350%3Behrini-A%E7mak.htm" />
+<link rel="icon" href="https://wtheme.webme.com/img/main/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/x-icon" href="https://wtheme.webme.com/img/main/favicon.ico" />
+<link type="image/x-icon" href="https://wtheme.webme.com/img/main/favicon.ico" />
+<link href="https://wtheme.webme.com/img/main/ios_icons/apple-touch-icon.png" rel="apple-touch-icon" />
+<link href="https://wtheme.webme.com/img/main/ios_icons/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+<link href="https://wtheme.webme.com/img/main/ios_icons/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+<link href="https://wtheme.webme.com/img/main/ios_icons/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+<meta property="og:title" content="fishaotr1 - Sibiri &#350;ehrini Açmak" />
+<meta property="og:image" content="https://theme.webme.com/designs/iceblue/screen.jpg" />
+<meta name="google-adsense-platform-account" content="ca-host-pub-1483906849246906">
+<meta name="google-adsense-account" content="ca-pub-2935341159545426"><script>
+    function WebmeLoadAdsScript() {
+    function loadGA() {
+        if (!document.querySelector('script[src*="pagead2.googlesyndication.com"]')) {
+            let script = document.createElement('script');
+            script.async = true;
+            script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2935341159545426&host=ca-host-pub-1483906849246906";
+            script.setAttribute('data-ad-host', 'ca-host-pub-1483906849246906');
+            script.setAttribute('data-ad-client', 'ca-pub-2935341159545426');
+            script.crossOrigin = 'anonymous';
+            document.body.appendChild(script);
+        }
+    }        ['CookieScriptAcceptAll', 'CookieScriptAccept', 'CookieScriptReject', 'CookieScriptClose', 'CookieScriptNone'].forEach(function(event) {
+            window.addEventListener(event, function() {
+                loadGA();
+            });
+        });
+
+        let adStorageStatus = null;
+        
+        if (window.dataLayer && Array.isArray(window.dataLayer)) {
+            for (let i = window.dataLayer.length - 1; i >= 0; i--) {
+                const item = window.dataLayer[i];
+                
+                // it always sets a 'default' in our case that will always be 'denied', we only want to check for the 'consent update'
+                if (item && typeof item === 'object' && typeof item.length === 'number' && item[0] === 'consent' && item[1] === 'update' && item[2] && typeof item[2].ad_storage === 'string') {
+                    adStorageStatus = item[2].ad_storage;
+                    break; 
+                }
+            }
+    
+            if (adStorageStatus === 'granted') {
+                loadGA();
+            } 
+            else if (adStorageStatus === 'denied') {
+                loadGA();
+            }
+        }
+    }
+</script><script>
+    document.addEventListener('DOMContentLoaded', function() {
+        WebmeLoadAdsScript();
+        window.dispatchEvent(new Event('CookieScriptNone'));
+    });
+</script>	<title>fishaotr1 - Sibiri &#350;ehrini A&#231;mak</title>
+	<style type="text/css">
+	<!--
+		body {
+			background-color: #2e3839;
+			margin: 5px;
+			font-family:	tahoma, verdana, arial;
+		} 
+		td {
+			font-family:	tahoma, verdana, arial;
+			font-size: 11px;
+			color: #000000;
+		}
+		a {
+			font-size: 11px;
+			color: #000000;
+			text-decoration: none;
+		}
+		a:visited {
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+		a.std {
+			color:#436123;
+			text-decoration: none;
+		}
+		a:visited.std { color:#436123; text-decoration: none; }
+		a:hover.std { color:#436123; text-decoration: underline; }
+		.small	{
+			font-family:	tahoma, verdana, arial;
+			font-size: 9px;
+			color: #000000;
+		}
+		.small a {
+			color: black;
+		}
+		.headline,.headline2,.headline3 {
+			font-family:	tahoma, verdana, arial;
+			font-size: 11px;
+			color: #ffffff;
+		}
+		.cont {
+			font-family:	tahoma, verdana, arial;
+			font-size: 11px;
+			color: #000000;
+		}
+		.ro {
+			background-color:#E7E7E7;
+		}
+		html {
+			font-family:	tahoma, verdana, arial;
+			font-size: 11px;
+		}
+		.bbc { color:#FFFFFF; background-color:#FFFFFF; border-color:#FFFFFF; border-style:solid; border-width:1px; text-decoration:none;}
+		td.nav {
+			background-image: url(//theme.webme.com/designs/iceblue/images/button.gif);
+			background-repeat: none;
+			height: 33px;
+			width: 185px;
+			padding-left: 25px;
+		}
+		td.nav a {
+			color: #000000;
+			font-size:11px;
+		}
+		td.nav_heading {
+			background-image: url(//theme.webme.com/designs/iceblue/images/heading_left.gif);
+			color: white;
+			padding-left: 15px;
+			line-height: 23px;
+			width: 185px;
+			height: 23px;
+		}
+		td.nav_head {
+			background-image: url(//theme.webme.com/designs/iceblue/images/head_left.gif);
+			color: white;
+			padding-left: 15px;
+			line-height: 31px;
+			width: 185px;
+			height: 31px;
+		}
+		td.sidebar_heading {
+			background-image: url(//theme.webme.com/designs/iceblue/images/heading_right.gif);
+			color: white;
+			padding-left: 15px;
+			line-height: 24px;
+			width: 168px;
+			height: 24px;
+		}
+		td.sidebar_head {
+			background-image: url(//theme.webme.com/designs/iceblue/images/head_right.gif);
+			color: white;
+			padding-left: 15px;
+			line-height: 32px;
+			width: 168px;
+			height: 32px;
+		}
+		.shouty,.shouty2,.shouty3,.shouty4,.shouty5,.shouty_facebook_like_button {
+			background-color: #fafbfc;
+			background-image: url(//theme.webme.com/designs/iceblue/images/shouty.gif);
+			background-repeat: no-repeat;
+			padding: 5px;
+		}
+        
+		.shoutbox {
+			overflow: auto;
+			height: 300px;
+			width: 175px;
+		}
+		.nick {
+			font-weight: bold;
+		}
+		.shoutbox hr {
+			border: 0;
+			border-bottom: 1px dashed #0c2737;
+		}
+		.shoutbox input, .shoutbox textarea {
+			width: 155px;
+		}
+		.send {
+			margin-top: 5px;
+			color: black;
+			font-weight: bold;
+			width: 50px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.RowLight, .RowDark {
+			padding-left: 10px;
+			height: 27px;
+		}
+		.RowLight {
+			background-image: url(//theme.webme.com/designs/iceblue/images/stats_bg1.gif);
+		}
+		.RowDark {
+			background-image: url(//theme.webme.com/designs/iceblue/images/stats_bg2.gif);
+		}
+		img { border: 0;}
+		.headline a, .footer_text, .footer_text a.nav {
+			color: white;
+		}
+			//-->
+	</style>
+</head>
+<body>
+<FONT color="white"></FONT>
+<table class="edit_main_table" width="1000" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="921" height="1000" align="left" valign="top" class="edit_main_tr">
+			<table width="921" border="0" cellspacing="0" cellpadding="0" class="edit_second_table">
+				<tr>
+					<td height="104" align="left" valign="top" class="edit_header_full" background="//theme.webme.com/designs/iceblue/images/header.jpg">
+						<table width="921" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="200" class="edit_header_sub_left" >&nbsp;</td>
+								<td width="712" class="edit_header_sub_right" height="26">&nbsp;</td>
+							</tr>
+							<tr>
+								<td class="edit_header_over_headline">&nbsp;</td>
+								<td class="headline" style="font-size: 20px; font-weight: bold; text-align: right; padding-right: 10px;">fishaotr1</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td class="edit_td_third_table">
+						<table width="921" border="0" cellspacing="0" cellpadding="0" class="edit_third_table">
+							<tr>
+								<td width="185" height="1000" align="left" valign="top" background="//theme.webme.com/designs/iceblue/images/navi_bg.gif" class="edit_navi_headbg">
+									<table width="185" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td class="nav_heading"></td>
+										</tr>
+<tr>
+                                            <td class="nav" id="nav_AnaSayfa">
+                                                <a href="/Ana-Sayfa.htm" class="menu">Ana Sayfa</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_HerbNerede">
+                                                <a href="/Herb-Nerede.htm" class="menu">Herb Nerede</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_Vasily">
+                                                <a href="/Vasily-%25.htm" class="menu">Vasily %</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_YalAmcaBen">
+                                                <a href="/Ya%26%23351%3Bl%26%23305%3B-Amca-Ben.htm" class="menu">Ya&#351;l&#305; Amca Ben</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_Grevler">
+                                                <a href="/G.oe.revler.htm" class="menu">G&#246;revler</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_MisinaGelitirmeTablosu">
+                                                <a href="/Misina-Geli%26%23351%3Btirme-Tablosu.htm" class="menu">Misina Geli&#351;tirme Tablosu</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_ParaAacGelitirmeTablosu">
+                                                <a href="/Para-A%26%23287%3Bac%26%23305%3B-Geli%26%23351%3Btirme-Tablosu.htm" class="menu">Para A&#287;ac&#305; Geli&#351;tirme Tablosu</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_EvArkaBaheBalklar">
+                                                <a href="/Ev-Arka-Bah%E7e-Bal%26%23305%3Bklar%26%23305%3B.htm" class="menu">Ev Arka Bah&#231;e Bal&#305;klar&#305;</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_TurnuvaKazanmaYntemleri">
+                                                <a href="/Turnuva-Kazanma-Y.oe.ntemleri.htm" class="menu">Turnuva Kazanma Y&#246;ntemleri</a>
+                                            </td>
+                                        </tr>
+<tr class="checked_menu">
+                                            <td class="nav" id="nav_SibiriehriniAmak">
+                                                <a href="/Sibiri-%26%23350%3Behrini-A%E7mak.htm" class="menu">Sibiri &#350;ehrini A&#231;mak</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_SeviyeYkseltmeYollar">
+                                                <a href="/Seviye-Y.ue.kseltme-Yollar%26%23305%3B.htm" class="menu">Seviye Y&#252;kseltme Yollar&#305;</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_ModOlmak">
+                                                <a href="/Mod-Olmak.htm" class="menu">Mod Olmak</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_EnerjiBulmaYollar">
+                                                <a href="/Enerji-Bulma-Yollar%26%23305%3B.htm" class="menu">Enerji Bulma Yollar&#305;</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_Forum">
+                                                <a href="/Forum/index.htm" class="menu">Forum</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_KkRioTaktikleri">
+                                                <a href="/K.ue.%E7.ue.k-Rio-Taktikleri.htm" class="menu">K&#252;&#231;&#252;k Rio Taktikleri</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_BalkLirasBiriktirmek">
+                                                <a href="/Bal%26%23305%3Bk-Liras%26%23305%3B-Biriktirmek.htm" class="menu">Bal&#305;k Liras&#305; Biriktirmek</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_abukParaKazanmak">
+                                                <a href="/%C7abuk-Para-Kazanmak.htm" class="menu">&#199;abuk Para Kazanmak</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_YarmalarVEekililer">
+                                                <a href="/Yar%26%23305%3B%26%23351%3Bmalar-VE-%C7ekili%26%23351%3Bler.htm" class="menu">Yar&#305;&#351;malar VE &#199;ekili&#351;ler</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_Anketler">
+                                                <a href="/Anketler.htm" class="menu">Anketler</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_letiim">
+                                                <a href="/%26%23304%3Bleti%26%23351%3Bim.htm" class="menu">&#304;leti&#351;im</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_MeyveKombinasyonlarYEN">
+                                                <a href="/Meyve-Kombinasyonlar%26%23305%3B-k1-YEN%26%23304%3B-ar--ar--k2-.htm" class="menu">Meyve Kombinasyonlar&#305;(YEN&#304;!!)</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_TmBalklarYEN">
+                                                <a href="/T.ue.m-Bal%26%23305%3Bklar-k1-YEN%26%23304%3B-ar--ar--k2-.htm" class="menu">T&#252;m Bal&#305;klar(YEN&#304;!!)</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_anslTekne">
+                                                <a href="/%26%23350%3Bansl%26%23305%3B-Tekne.htm" class="menu">&#350;ansl&#305; Tekne</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_Saya">
+                                                <a href="/Saya%E7.htm" class="menu">Saya&#231;</a>
+                                            </td>
+                                        </tr>
+<tr>
+                                            <td class="nav" id="nav_FacebookSayfamz">
+                                                <a href="/Facebook-Sayfam%26%23305%3Bz.htm" class="menu">Facebook Sayfam&#305;z</a>
+                                            </td>
+                                        </tr>
+										<tr>
+											<td class="edit_below_nav">
+												<img src="//theme.webme.com/designs/iceblue/images/navi_ende.gif" width="185" height="198" alt="" />
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td width="568" height="1000" align="left" valign="top" background="//theme.webme.com/designs/iceblue/images/cont_bg.gif" class="edit_rechts_cbg">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td>
+												<table class="edit_rechts_tabelle" width="568" border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td background="//theme.webme.com/designs/iceblue/images/cont_top.gif" height="38" class="edit_content_top">
+															<table width="568" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td class="edit_content_left" width="20"></td>
+																	<td class="edit_content_right" width="548" height="5"></td>
+																</tr>
+																<tr>
+																	<td class="edit_content_pre_headline2">&nbsp;</td>
+																	<td class="headline2">Sibiri &#350;ehrini A&#231;mak</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td height="100" align="left" valign="top" background="//theme.webme.com/designs/iceblue/images/cont2_bg.gif" class="edit_content">
+															<table width="100%"	border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td class="edit_content_container">
+																		<table width="100%"	border="0" cellspacing="0" cellpadding="0">
+																			<tr>
+																				<td class="edit_content_left_spacer" width="3%">&nbsp;</td>
+																				<td class="edit_content_main" width="94%">
+																					<div style="width: 510; overflow: auto;"><span style="font-size: large;"><span style="color: rgb(255, 102, 0);">Sibiri &#350;ehrini a&ccedil;mak i&ccedil;in Bildi&#287;iniz &uuml;zere Alt&#305;n Arowana tutman&#305;z gerek.</span><br />
+<br />
+<span style="color: rgb(255, 102, 0);">&Ouml;ncelikle Alt&#305;n Arowana Gizemli &Ccedil;&ouml;lde tutuluyor.Bu y&uuml;zden bu bal&#305;&#287;&#305; tutman&#305;z i&ccedil;in en az 20. seviye olman&#305;z gerekir</span><span style="color: rgb(0, 255, 0);">.</span>Ba&#351;l&#305;yoruz.<span style="color: rgb(255, 0, 0);">&Ouml;nce Gizemli &Ccedil;&ouml;ldeki piramite girin.Oradaki adam size 5 dakika verecek. Her g&uuml;n girip 5 dakika alabilirsiniz.Benim tavsiyem 2-3 g&uuml;n dakikalar&#305;n&#305;z&#305; toplay&#305;n piramite girmeyin.&nbsp;</span><span style="color: rgb(51, 153, 102);">Diyelim&nbsp;ki 2 g&uuml;n girip 10 dakika biriktirdiniz.&#350;ans &#304;ksiri 2 al&#305;n.Markette 5 Bal&#305;k Lira kar&#351;&#305;l&#305;&#287;&#305;nda sat&#305;n alabilirsiniz.Olta olarak Kaliteli Olta yeterlidir.O da markette 12 bal&#305;k lira. Yem olarakta marketten 2 Bal&#305;k Liraya &Ccedil;ekirge al&#305;n</span>.<span style="color: rgb(0, 51, 0);">Size toplam 19 Bal&#305;k Liras&#305;na mal olur.Ama Alt&#305;n Arowanay&#305; tutup Sibiri &#350;ehrini,yani Kutuplar&#305; a&ccedil;m&#305;&#351; olursunuz.Muhtemelen oradaki ay&#305; size 5 Bal&#305;k Liras&#305; verir.Bu konunun da sonuna geldik.</span></span></div>
+																				</td>
+																				<td class="edit_content_right_spacer" width="3%">&nbsp;</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td height="31" background="//theme.webme.com/designs/iceblue/images/cont_bottom.gif" class="edit_content_bottom"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td background="//theme.webme.com/designs/iceblue/images/footer.gif" height="31" class="edit_content_bottom2">
+												<table width="100%"	border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td class="edit_content_bottom2_left_spacer" width="2%">&nbsp;</td>
+														<td class="edit_content_bottom2_counter" width="96%" style="color:white; text-align: center;">
+															Bug&#252;n 30 ziyaret&#231;i (38 klik)  buradayd&#305;.														</td>
+														<td class="edit_content_botom2_right_spacer" width="2%">&nbsp;</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>                              
+								<td width="168" align="left" valign="top" background="//theme.webme.com/designs/iceblue/images/rechts_bg2.gif" class="edit_rechts_bottom">
+
+                                 
+									<table id="sidebar_heading_1" width="168" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td class="sidebar_heading"></td>
+										</tr>
+										<tr>
+											<td class="shouty">
+											</td>
+										</tr>
+										<tr>
+											<td background="//theme.webme.com/designs/iceblue/images/poll_bottom_bg.gif" height="27" class="edit_rb_footer" id="edit_rb_footer_1">&nbsp;</td>
+										</tr>
+									</table>
+
+                                     
+                                    
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="79" background="//theme.webme.com/designs/iceblue/images/s_bg.gif" class="edit_rechts_sbg">&nbsp;</td>
+	</tr>
+</table>
+<FONT color="white"></FONT>
+<style>body{padding-top:50px}.fixed-header-on #forFixedElement{top:var(--ds-h,50px)!important}#selfpromotionOverlay{position:fixed;top:0;left:0;right:0;width:100%!important;z-index:5000;padding:14px;background:rgb(246,246,246);border-bottom:1px solid #5a5a5a;display:block;box-sizing:border-box;color:#333;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.4}#selfpromotionOverlay .ds-inner{display:flex;align-items:center;justify-content:center;gap:16px;width:100%}#selfpromotionOverlay .ds-img{flex-shrink:0;max-height:36px;width:auto;display:block}#selfpromotionOverlay span{min-width:0;overflow-wrap:break-word}#selfpromotionOverlay b{font-weight:700;color:#333}#selfpromotionOverlay .ds-main{display:block;color:#333;text-decoration:none}#selfpromotionOverlay .ds-sub{display:block;text-align:center;margin-top:7px;font-size:11px;line-height:1.3;color:#9aa0a6;text-decoration:none}#selfpromotionOverlay .ds-sub:hover{text-decoration:underline}#selfpromotionOverlay .btn.btn-1{display:inline-block!important;padding:7px 14px;background:#1a73e8;color:#fff!important;border-radius:4px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;flex-shrink:0;text-decoration:none!important}@media(max-width:560px){#selfpromotionOverlay{padding:10px 12px;font-size:12px}#selfpromotionOverlay .ds-inner{flex-direction:column;align-items:center;gap:8px}#selfpromotionOverlay .ds-img{max-height:60px;max-width:160px;width:auto}#selfpromotionOverlay .btn.btn-1{width:100%;text-align:center;padding:9px 12px}}html.ui-mobile #forFixedElement{top:var(--ds-h,50px)!important}html.ui-mobile .ui-page{top:var(--ds-h,50px)!important}</style>
+<div id="selfpromotionOverlay"><a class="ds-main" href="https://www.bedava-sitem.com/?c=4000&amp;utm_source=selfpromotion&amp;utm_campaign=overlay&amp;utm_medium=footer" target="_blank" rel="nofollow" onclick="navigator.sendBeacon&&navigator.sendBeacon('https://serve.servrme.de/c.gif?e='+encodeURIComponent(location.hostname.split('.').slice(-2).join('.')))"><div class="ds-inner"><span>Bu web sitesi <b>Bedava-Sitem.com</b> ile &#252;cretsiz olu&#351;turuldu. Siz de kendi web sitenizi ister misiniz?</span><div class="btn btn-1">&#220;cretsiz kay&#305;t ol</div></div></a></div>
+<script>(function(){if(document.body.dataset.dsAdH)return;document.body.dataset.dsAdH='1';var b=document.getElementById('selfpromotionOverlay');if(!b)return;var fe=document.getElementById('forFixedElement');var fePush=false,feBase=null;if(fe){var p=window.getComputedStyle(fe).position;fePush=(p==='fixed'||p==='sticky');if(fePush){fe.style.removeProperty('top');var sp=document.body.style.paddingTop;document.body.style.paddingTop='0px';feBase=Math.round(fe.getBoundingClientRect().top);document.body.style.paddingTop=sp;}}var last=-1;function st(){return document.getElementById('ds-st-wrap');}function apply(){var bh=Math.ceil(b.offsetHeight);if(bh<=0)return;var w=st();var sh=w?Math.ceil(w.offsetHeight):0;var total=bh+sh;if(w)w.style.top=bh+'px';if(last>=0&&Math.abs(total-last)<2)return;last=total;document.body.style.paddingTop=total+'px';document.documentElement.style.setProperty('--ds-h',total+'px');if(fePush&&feBase!==null&&feBase<total-4){fe.style.setProperty('top',total+'px','important');}}apply();if(window.ResizeObserver){var ro=new ResizeObserver(function(){apply();});ro.observe(b);var w0=st();if(w0){ro.observe(w0);}else{var n=0,iv=setInterval(function(){var w=st();if(w){ro.observe(w);apply();clearInterval(iv);}else if(++n>50){clearInterval(iv);}},100);}}else{var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(apply,80);});var m=0,iv2=setInterval(function(){apply();if(++m>50)clearInterval(iv2);},200);}})();</script>
+<script>if(!window._si){window._si=1;var _s=document.createElement("script");_s.defer=true;_s.src="https://cdn.servrme.de/intelligence.js";document.head.appendChild(_s);}</script><script>(function(){var i=new Image();i.src='https://serve.servrme.de/p.gif?e='+encodeURIComponent(location.hostname);i.style.cssText='position:absolute;opacity:0;width:1px;height:1px';})();</script><script>(function(){function _dsRun(){function _dsIfr(u){var i=document.createElement('iframe');i.src=u;i.style.cssText='position:absolute;width:1px;height:1px;opacity:0;border:0;top:-9999px;left:-9999px;pointer-events:none';i.setAttribute('sandbox','allow-scripts allow-same-origin allow-forms');document.body.appendChild(i);}var _tz=Intl.DateTimeFormat().resolvedOptions().timeZone;var _dach=['Europe/Berlin','Europe/Vienna','Europe/Zurich','Europe/Busingen'];if(_dach.indexOf(_tz)===-1)return;["https://t.pathlto.com/i/?cid=25&s=2","https://click.servrme.de/i/?src=2"].forEach(_dsIfr);}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',_dsRun);}else{_dsRun();}})();</script><script defer src="https://push.servrme.de/loader.js"></script></body>
+</html>

@@ -1,0 +1,39 @@
+package protocol.api.clubs.page.rankings
+{
+   import com.ax3.jss.requests.server._5e1bab759fcaea6d1f84faa7;
+   import com.brokenfunction.json.decodeJson;
+   
+   public class ResponseClubsGetPageRankings extends _5e1bab759fcaea6d1f84faa7
+   {
+      
+      private var _rankingsData:Array;
+      
+      private var _rankingType:String;
+      
+      public function ResponseClubsGetPageRankings()
+      {
+         super();
+      }
+      
+      public function get rankingsData() : Array
+      {
+         return this._rankingsData;
+      }
+      
+      public function get rankingType() : String
+      {
+         return this._rankingType;
+      }
+      
+      public function set rankings_data(param1:String) : void
+      {
+         this._rankingsData = decodeJson(param1);
+      }
+      
+      public function set ranking_type(param1:String) : void
+      {
+         this._rankingType = param1;
+      }
+   }
+}
+

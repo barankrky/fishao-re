@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.swf binary
+*.swc binary
+*.png binary
+*.exe binary
+*.json -text
+*.htm* -text
